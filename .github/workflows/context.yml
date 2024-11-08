@@ -3,10 +3,18 @@ name: Context Workflow
 on: [push]
 
 jobs:
-  some_name:
+  context-job:
     runs-on: ubuntu-latest
     steps:
       - name: yo
         run: echo yo
       - name: action
         run: echo ${{ github.action }}
+      - name: if in a step?
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: "echo If in a step worked GITHUB_REF: $GITHUB_REF"
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
