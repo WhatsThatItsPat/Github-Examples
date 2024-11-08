@@ -1,0 +1,12 @@
+name: Context Workflow
+
+on: [push]
+
+jobs:
+  some_name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: yo
+        run: echo yo
+      - name: action
+        run: echo ${{ github.action }}
