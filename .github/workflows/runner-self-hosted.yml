@@ -7,6 +7,8 @@ on:
     branches:
       - main
 
+# In the course at https://www.youtube.com/watch?app=desktop&v=Tz7FsunBbfQ
+# he forgets to run the runner with `./run.sh`
 jobs:
   example-job:
     runs-on: self-hosted
