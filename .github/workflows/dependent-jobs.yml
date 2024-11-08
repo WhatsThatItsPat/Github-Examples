@@ -1,0 +1,16 @@
+name: Dependent Jobs
+
+on: [push]
+
+jobs:
+  job_b:
+    runs-on: ubuntu-latest
+    needs: job_a
+    steps:
+      - name: Job B
+        run: echo Job B listed as first job
+  job_a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job A
+        run: echo Job A listed as second job
