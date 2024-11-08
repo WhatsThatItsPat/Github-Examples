@@ -12,3 +12,9 @@ jobs:
           echo msg 1
           echo msg 2
           echo ::endgroup::
+      - name: Add var to env
+        run: echo MY_VAL=dudesweet >> $GITHUB_ENV
+      - name: Read var from env
+        run: |
+          echo GITHUB_ENV: $GITHUB_ENV
+          echo MY_VAL: $MY_VAL
